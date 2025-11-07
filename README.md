@@ -69,22 +69,6 @@ Ou depois do build, servir a pasta `dist`:
 npx serve dist
 ```
 
----
-
-## Publicar no GitHub (rápido)
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-git push -u origin main
-```
-
-(Dica: adicione `.gitignore` adequado — já existe `node_modules` mas inclua `dist`, `.env`, `.DS_Store` etc.)
-
----
-
 ## Uso / Desenvolvimento rápido
 - Estrutura principal:
   - src/components — componentes React (Hero, CatalogSection, Footer...)
