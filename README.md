@@ -263,10 +263,3 @@ git push -u origin main
 
 ## Testes e CI (opcional)
 Adicione scripts de teste no `package.json` (Jest / Vitest) conforme sua stack e configure GitHub Actions para build/test antes do deploy.
-
----
-
-Se quiser, eu:
-- gero um `.gitignore` mais completo,
-- adapto o README com os scripts reais do seu `package.json`,
-- crio instruções de deploy (GitHub Pages
