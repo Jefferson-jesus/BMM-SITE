@@ -1,0 +1,64 @@
+# -------------------------------------
+# Node and dependencies
+# -------------------------------------
+node_modules/
+pnpm-lock.yaml
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# -------------------------------------
+# Vite build output
+# -------------------------------------
+dist/
+dist-ssr/
+.vite/
+
+# -------------------------------------
+# Environment and sensitive files
+# -------------------------------------
+.env
+.env.local
+.env.*.local
+
+# (EmailJS não precisa esconder public key, mas se quiser usar API própria futuramente, já fica preparado)
+.env.development
+.env.production
+
+# -------------------------------------
+# Editor and system files
+# -------------------------------------
+.DS_Store
+Thumbs.db
+
+# VSCode settings (opcional)
+.vscode/
+.idea/
+
+# -------------------------------------
+# Cache
+# -------------------------------------
+*.log
+.cache/
+eslintcache
+
+# -------------------------------------
+# Optional: ignore Mac/Windows trash files
+# -------------------------------------
+*.swp
+*.swm
+*.swo
+*.tmp
+*.temp
+
+# -------------------------------------
+# Optional: build preview output
+# -------------------------------------
+serve/
+build/
+
+# -------------------------------------
+# Optional: ignore images cache or thumbnails
+# -------------------------------------
+**/.thumbs

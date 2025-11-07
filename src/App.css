@@ -1,0 +1,385 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  
+  /* BMM Premium Color Palette - baseado no logo */
+  --bmm-blue-primary: #4FC3F7;
+  --bmm-blue-dark: #0288D1;
+  --bmm-blue-darker: #01579B;
+  --bmm-navy: #0A1929;
+  --bmm-white: #FFFFFF;
+  --bmm-gray-light: #F8FAFC;
+  --bmm-gray: #E2E8F0;
+  --bmm-black: #0F172A;
+  --bmm-gold: #FFA726;
+  
+  --background: var(--bmm-white);
+  --foreground: var(--bmm-black);
+  --card: var(--bmm-white);
+  --card-foreground: var(--bmm-black);
+  --popover: var(--bmm-white);
+  --popover-foreground: var(--bmm-black);
+  --primary: var(--bmm-blue-primary);
+  --primary-foreground: var(--bmm-white);
+  --secondary: var(--bmm-gray-light);
+  --secondary-foreground: var(--bmm-black);
+  --muted: var(--bmm-gray-light);
+  --muted-foreground: #64748B;
+  --accent: var(--bmm-blue-primary);
+  --accent-foreground: var(--bmm-white);
+  --destructive: #EF4444;
+  --border: var(--bmm-gray);
+  --input: var(--bmm-gray);
+  --ring: var(--bmm-blue-primary);
+  --chart-1: var(--bmm-blue-primary);
+  --chart-2: var(--bmm-blue-dark);
+  --chart-3: var(--bmm-blue-darker);
+  --chart-4: var(--bmm-navy);
+  --chart-5: var(--bmm-gold);
+  --sidebar: var(--bmm-white);
+  --sidebar-foreground: var(--bmm-black);
+  --sidebar-primary: var(--bmm-blue-primary);
+  --sidebar-primary-foreground: var(--bmm-white);
+  --sidebar-accent: var(--bmm-gray-light);
+  --sidebar-accent-foreground: var(--bmm-black);
+  --sidebar-border: var(--bmm-gray);
+  --sidebar-ring: var(--bmm-blue-primary);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: #EF4444;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+}
+
+/* Custom Premium Styles for BMM Site */
+
+/* Hero Section - Premium gradient with overlay pattern */
+.hero-section {
+  background: 
+    linear-gradient(135deg, rgba(10, 25, 41, 0.97) 0%, rgba(1, 87, 155, 0.95) 50%, rgba(79, 195, 247, 0.93) 100%),
+    url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cdefs%3E%3Cpattern id=\'grid\' width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'%3E%3Cpath d=\'M 40 0 L 0 0 0 40\\\' fill=\'none\' stroke=\'rgba(255,255,255,0.03)\' stroke-width=\'1\'%3E%3C/path%3E%3C/pattern%3E%3C/defs%3E%3Crect width=\'100\' height=\'100\' fill=\'url(%23grid)\'%3E%3C/rect%3E%3C/svg%3E"); min-height: 85vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(79, 195, 247, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Section Padding - More spacious for premium feel */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+/* Premium Card Hover Effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 195, 247, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.card-hover:hover::before {
+  left: 100%;
+}
+
+.card-hover:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(79, 195, 247, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #4FC3F7 0%, #0288D1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Button Styles */
+.premium-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.premium-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.premium-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* WhatsApp Float - Premium style */
+.whatsapp-float {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  bottom: 32px;
+  right: 32px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 
+    0 8px 24px rgba(37, 211, 102, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 
+    0 12px 32px rgba(37, 211, 102, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 
+      0 8px 24px rgba(37, 211, 102, 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 8px 32px rgba(37, 211, 102, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-catalog {
+  max-width: 100%;
+  height: -webkit-fill-available;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-img-footer {
+  max-height: 5rem; /* equivalente a max-h-32 */
+}
+
+/* Premium Loading Animation */
+.lazy-loading {
+  background: linear-gradient(
+    90deg,
+    #F8FAFC 0%,
+    #E2E8F0 50%,
+    #F8FAFC 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.8s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Premium Divider */
+.premium-divider {
+  height: 2px;
+  background: linear-gradient(90deg, #4FC3F7, #0288D1, #4FC3F7);
+  margin: 3rem auto;
+  width: 100px;
+  border-radius: 1px;
+}
+
+/* Accent Line */
+.accent-line {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #4FC3F7, #0288D1);
+  border-radius: 2px;
+  margin: 0 auto 2rem;
+}
+
+@media (max-width: 768px) {
+  /* img {
+    max-width: 50%;
+    height: 10%;
+  } */
+
+  .logo-img {
+    max-height: 10rem; /* equivalente a max-h-12 */
+    
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-img {
+    max-height: 5rem; /* equivalente a max-h-20 */
+  }
+}
+
+@media (min-width: 1280px) {
+  .logo-img {
+    max-height: 13rem; /* equivalente a max-h-24 */
+  }
+}
